@@ -1,7 +1,4 @@
-/* ============================================================
-   VIBECARRY v5 — Cart Module
-   localStorage key: vibecarry_cart_v5
-   ============================================================ */
+
 const CART_KEY = "vibecarry_cart_v5";
 
 const Cart = (() => {

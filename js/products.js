@@ -1,10 +1,6 @@
-/* ============================================================
-   VIBECARRY v5 — Product Catalog
-   10 Produk: 5 Sling Bag + 5 Backpack
-   ============================================================ */
 
 const PRODUCTS = [
-  /* ──────────── SLING BAG ──────────── */
+  /* SLING BAG */
   {
     id: "vc-sb01",
     name: "Vibecarry Cherry Tweed Shoulder Bag",
@@ -52,7 +48,7 @@ const PRODUCTS = [
     image: "images/3.katalogslingbag.JPG.jpeg",
     colors: ["Ivory White", "Off White"],
     colorHex: ["#FAFAF5", "#F0EDE8"],
-    short: "Siluet hobo klasik dengan detail jahitan V-shape dan logo emas minimalis. Warna ivory netral, cocok semua outfit.",
+    short: "Siluet klasik dengan detail jahitan V-shape dan logo emas minimalis. Warna ivory netral, cocok semua outfit.",
     desc: "Tas dengan siluet hobo klasik yang tak lekang oleh waktu. Menampilkan detail jahitan berbentuk huruf 'V' yang presisi di bagian depan serta logo emas minimalis yang menambah kesan mewah. Warna putih gadingnya (ivory) sangat netral, mudah dipadupadankan dengan outfit kerja maupun kasual.",
     features: ["Kantong ritsleting depan", "Tali bahu nyaman", "Tali panjang ekstra", "Logo emas embossed"],
     material: "Kulit sintetis pebble",
@@ -72,7 +68,7 @@ const PRODUCTS = [
     colorHex: ["#F5F0E8", "#E8E8E8"],
     short: "Tas bulan sabit (crescent) dengan detail quilted kotak-kotak dan aksen rantai putih-emas yang elegan dan trendi.",
     desc: "Ekspresikan gayamu dengan tas berbentuk bulan sabit (crescent bag) yang sedang tren! Detail quilted (kotak-kotak empuk) memberikan tekstur yang elegan, dipercantik dengan aksen rantai kombinasi warna putih dan emas di bagian depan. Memiliki tali bahu lebar yang trendi dan nyaman dipakai seharian.",
-    features: ["Aksesoris rantai (lepas pasang)", "Strap tebal lebar", "Penutup ritsleting utama", "Quilted detail premium"],
+    features: ["Aksesoris rantai (lepas pasang)", "Strap tebal lebar", "Penutup ritsleting utama", "Quilted detail yang premium"],
     material: "Faux leather + rantai logam alloy",
     sizes: ["One Size"],
     stock: 24,
@@ -89,14 +85,14 @@ const PRODUCTS = [
     colors: ["Jet Black", "Dark Brown"],
     colorHex: ["#1A1A1A", "#3D2314"],
     short: "Warna hitam pekat bertekstur pebble leather yang tahan gores. Aksen gesper perak klasik untuk tampilan profesional.",
-    desc: "Hadir dengan warna hitam pekat bermotif kulit jeruk (pebble leather texture) yang tahan gores dan mudah dibersihkan. Aksen gesper (buckle) perak di bagian depan memberikan sentuhan klasik yang berkelas. Sangat pas untuk menemani aktivitas harian, kuliah, maupun ke kantor.",
-    features: ["Tali adjustable", "Penutup magnet di balik gesper", "Material tebal & kokoh", "Tahan gores & mudah dibersihkan"],
+    desc: "Hadir dengan warna hitam pekat bermotif kulit jeruk (pebble leather texture) yang tahan gores dan mudah dibersihkan. Aksen gesper (buckle) perak di bagian depan memberikan sentuhan klasik yang berkelas. Sangat pas untuk menemani daily activities, kuliah, maupun ke kantor.",
+    features: ["Tali adjustable", "Penutup magnet di balik gesper", "Material tebal & kokoh", "Tahan dari gores & mudah dibersihkan"],
     material: "Pebble faux leather premium",
     sizes: ["One Size"],
     stock: 51,
   },
 
-  /* ──────────── BACKPACK ──────────── */
+  /*  BACKPACK */
   {
     id: "vc-bp01",
     name: "Vibecarry Safia Anti-Theft Backpack",
@@ -110,8 +106,8 @@ const PRODUCTS = [
     colorHex: ["#6B4226", "#1A1A1A"],
     short: "Desain anti-theft cerdas dengan material nylon premium water-resistant. Dual function: bisa jadi shoulder bag.",
     desc: "Keamanan dan kenyamanan bersatu dalam Safia Backpack. Hadir dengan desain anti-theft (akses ritsleting utama yang cerdas) serta material premium nylon yang tahan cipratan air. Perpaduan warna moka yang elegan dengan detail quilted di kantong depan memberikan kesan berkelas, menjadikannya pilihan tepat untuk wanita aktif yang dinamis.",
-    features: ["Kompartemen rahasia anti-theft", "Bahan ringan & kuat nylon", "Multifunctional strap (shoulder/back)", "Water-resistant"],
-    material: "Premium Nylon Water-Resistant",
+    features: ["Kompartemen rahasia anti-theft", "Bahan ringan & kuat dari nylon", "Multifunctional strap (shoulder/back)", "Water resistant"],
+    material: "Premium Nylon Water Resistant",
     sizes: ["One Size"],
     stock: 40,
   },
@@ -127,7 +123,7 @@ const PRODUCTS = [
     colors: ["Cream White", "Walnut Brown", "Charcoal"],
     colorHex: ["#F5F0E8", "#7A5C3A", "#4A4A4A"],
     short: "Minimalis berkelas dengan penutup flap sistem serut dan aksen gesper kembar vintage. Ideal untuk kantor & rapat.",
-    desc: "Untuk Anda yang mendambakan tampilan yang bersih, rapi, dan berkelas ala smart-casual. Ransel Vienna mengusung desain minimalis dengan penutup flap bersistem serut serta aksen gesper kembar bernuansa vintage. Terbuat dari kulit sintetis smooth berkualitas tinggi yang kokoh, tas ini sangat pas untuk menemani aktivitas ke kantor.",
+    desc: "Untuk Anda yang mendambakan tampilan yang bersih, rapi, dan berkelas ala smart casual. Ransel Vienna mengusung desain minimalis dengan penutup flap bersistem serut serta aksen gesper kembar bernuansa vintage. Terbuat dari kulit sintetis yang smooth berkualitas tinggi yang kokoh, tas ini sangat pas untuk menemani aktivitas ke kantor.",
     features: ["Kantong ritsleting depan luas", "Dua kantong botol di samping", "Kompartemen laptop mini", "Aksen gesper kembar vintage"],
     material: "Smooth faux leather premium",
     sizes: ["One Size"],
@@ -147,7 +143,7 @@ const PRODUCTS = [
     short: "Pink pastel menggemaskan dengan bordir bintang laut. Kapasitas ekstra luas + bonus dompet koin mini senada.",
     desc: "Cerahkan hari-hari produktif Anda dengan Stella Marine Backpack! Mengusung warna pink pastel yang super menggemaskan, ransel ini dihiasi detail bordir bintang laut yang manis serta bonus gantungan koin bulat senada. Dirancang khusus dengan kapasitas ekstra luas dan busa punggung tebal.",
     features: ["Gratis dompet koin mini", "Tali berlapis busa breathable mesh", "Banyak sekat penyimpanan", "Bordir bintang laut eksklusif"],
-    material: "Poliester premium + Busa punggung tebal",
+    material: "Poliester premium + Busa punggung yang tebal",
     sizes: ["One Size"],
     stock: 55,
   },
