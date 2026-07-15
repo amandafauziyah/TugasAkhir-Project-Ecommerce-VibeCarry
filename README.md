@@ -1,0 +1,77 @@
+## Daftar Isi
+1. [Profil Bisnis & Value Proposition](#1-profil-bisnis--value-proposition)
+2. [Target Market & Segmentasi](#2-target-market--segmentasi)
+3. [Analisis Pasar & Kompetitor](#3-analisis-pasar--kompetitor)
+4. [Strategi Manajemen Produk & Katalog](#4-strategi-manajemen-produk--katalog)
+5. [Model Bisnis & Revenue Stream](#5-model-bisnis--revenue-stream)
+6. [Strategi Harga, Promosi & Diskon](#6-strategi-harga-promosi--diskon)
+7. [Proses Checkout & Payment Gateway](#7-proses-checkout--payment-gateway)
+8. [Rencana SEO, Keamanan & Pemeliharaan](#8-rencana-seo-keamanan--pemeliharaan)
+9. [Rencana Penggunaan Data Analytics](#9-rencana-penggunaan-data-analytics)
+10. [Struktur Folder](#10-struktur-folder)
+11. [Cara Menjalankan Website](#11-cara-menjalankan-website)
+12. [Fitur Teknis Website](#12-fitur-teknis-website)
+13. [Deployment ke GitHub Pages](#13-deployment-ke-github-pages)
+
+---
+
+## 1. Profil Bisnis & Value Proposition
+**VibeCarry** adalah brand tas lokal independen Indonesia yang memproduksi tas selempang (sling bag) dan ransel (backpack) wanita harian dengan konsep "Cute yet Elegant". Berdiri sejak 2024, kami menggabungkan siluet visual yang menggemaskan dan ekspresif dengan struktur potongan yang anggun, berkelas, serta fungsional untuk menunjang aktivitas mobilitas.
+VibeCarry berkomitmen untuk memberikan produk tas yang tidak hanya cantik secara visual, tetapi juga nyaman dan fungsional untuk digunakan sehari-hari.
+
+**Value Proposition:**
+- Konsep desain "Cute yet Elegant" yang unik dan kekinian.
+- Fokus pada tas selempang (sling bag) dan ransel (backpack) fungsional.
+- Material berkualitas dengan jahitan yang kuat untuk ketahanan maksimal.
+- Pilihan warna-warna estetis dan menarik.
+- Pelayanan pelanggan yang cepat dan responsif.
+- Pengiriman ke seluruh Indonesia dengan opsi gratis ongkir.
+
+## 2. Target Market & Segmentasi
+**Target Market:**
+VibeCarry menargetkan konsumen wanita muda yang aktif, mulai dari pelajar, mahasiswa, hingga pekerja kantoran yang membutuhkan tas stylish namun fungsional untuk menemani aktivitas harian mereka.
+
+**Segmentasi Demografis:**
+- Usia: 15–30 tahun
+- Jenis kelamin: Wanita
+- Status: Pelajar, mahasiswa, pekerja muda (first-jobber)
+- Tingkat pendapatan: Menengah
+
+**Segmentasi Geografis:**
+Target pemasaran mencakup seluruh wilayah Indonesia, dengan fokus pada kota-kota besar (Jakarta, Bandung, Surabaya, Medan, dll) di mana mobilitas dan tren fashion berkembang pesat.
+
+**Segmentasi Psikografis:**
+Pelanggan yang peduli dengan penampilan, menyukai barang-barang lucu namun tetap terlihat profesional/anggun, aktif di media sosial, dan mencari tas yang bisa memuat banyak barang esensial harian.
+
+**Segmentasi Perilaku:**
+Suka mencari inspirasi gaya di Instagram/TikTok, tertarik pada promo gratis ongkir, mengutamakan estetika tanpa mengorbankan utilitas, dan cenderung merekomendasikan produk unik ke teman-teman.
+
+## 3. Analisis Pasar & Kompetitor
+**Analisis Pasar:**
+Permintaan terhadap tas wanita lokal terus meningkat, terutama bagi brand yang mampu menawarkan identitas unik. Konsep "Cute yet Elegant" menjawab kebutuhan pasar akan tas yang tidak terlalu kaku namun tetap pantas dibawa ke berbagai acara (kampus, hangout, hingga semi-formal). Potensi pasar e-commerce di Indonesia sangat mendukung pertumbuhan brand tas spesifik seperti VibeCarry.
+
+**Kompetitor:**
+Merche, Exsport, Jims Honey, En-ji, Elizabeth (pada kategori tertentu), serta brand tas lokal independen lainnya di marketplace.
+
+**Keunggulan Kompetitif VibeCarry:**
+- Memiliki ciri khas perpaduan gaya "Cute" dan "Elegant".
+- Spesialisasi pada sling bag dan backpack harian.
+- Pengalaman berbelanja di website yang dinamis dan berkelas.
+- Harga yang kompetitif dengan nilai kualitas yang tinggi.
+
+## 4. Strategi Manajemen Produk & Katalog
+VibeCarry mengkurasi produk untuk memastikan setiap koleksi relevan dengan kebutuhan dan tren saat ini.
+
+**Kategori Produk:**
+- **Sling Bag:** Tas selempang praktis untuk mobilitas tinggi.
+- **Backpack:** Ransel harian untuk membawa barang lebih banyak (laptop, buku, dsb).
+
+**Informasi Produk:**
+Katalog produk dilengkapi dengan detail visual beresolusi tinggi, harga, pilihan warna, deskripsi produk, bahan, spesifikasi ukuran tas, dan panduan perawatan.
+
+## 5. Model Bisnis & Revenue Stream
+**Model Bisnis:**
+VibeCarry menggunakan model Direct-to-Consumer (D2C) melalui platform e-commerce milik sendiri (website) serta marketplace untuk menjangkau konsumen secara langsung tanpa perantara retail pihak ketiga.
+
+**Revenue Stream:**
+Pendapatan utama berasal dari penjualan produk tas (Sling Bag & Backpack). Sumber pendapatan tambahan dapat berasal dari kolaborasi produk (co-branding) dan penjualan aksesori tas pendukung di masa depan.
