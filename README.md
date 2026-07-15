@@ -75,3 +75,17 @@ VibeCarry menggunakan model Direct-to-Consumer (D2C) melalui platform e-commerce
 
 **Revenue Stream:**
 Pendapatan utama berasal dari penjualan produk tas (Sling Bag & Backpack). Sumber pendapatan tambahan dapat berasal dari kolaborasi produk (co-branding) dan penjualan aksesori tas pendukung di masa depan.
+
+## 6. Strategi Harga, Promosi & Diskon
+**Strategi Harga:**
+VibeCarry menetapkan harga yang kompetitif untuk target audiens mahasiswa dan pekerja pemula, namun tetap memberikan persepsi barang berkualitas premium.
+
+**Strategi Promosi:**
+- **Gratis Ongkir:** Bebas ongkos kirim untuk pembelian minimum Rp200.000.
+- Pemasaran melalui media sosial (Instagram, TikTok) menggunakan visual estetis.
+- Promo musiman, voucher diskon untuk pelanggan baru, dan bundle deals.
+
+## 7. Proses Checkout & Payment Gateway
+Proses checkout dirancang sangat ringkas:
+Keranjang Belanja → Pengisian Data Pengiriman → Pemilihan Kurir → Pembayaran.
+Website menggunakan integrasi simulasi payment gateway untuk kemudahan pembayaran seperti transfer bank (Virtual Account), e-wallet (GoPay, OVO, ShopeePay), dan QRIS.
