@@ -89,3 +89,14 @@ VibeCarry menetapkan harga yang kompetitif untuk target audiens mahasiswa dan pe
 Proses checkout dirancang sangat ringkas:
 Keranjang Belanja → Pengisian Data Pengiriman → Pemilihan Kurir → Pembayaran.
 Website menggunakan integrasi simulasi payment gateway untuk kemudahan pembayaran seperti transfer bank (Virtual Account), e-wallet (GoPay, OVO, ShopeePay), dan QRIS.
+
+## 8. Rencana SEO, Keamanan & Pemeliharaan
+**SEO:**
+Fokus pada kata kunci seperti "Tas Selempang Wanita", "Backpack Wanita Lokal", "Sling Bag Elegan", dan "Tas Kuliah Lucu". Optimasi meta tag, responsivitas mobile, dan kecepatan pemuatan halaman (lazy loading gambar).
+
+**Keamanan:**
+Situs menggunakan HTTPS, serta menerapkan praktik standar perlindungan data pengguna dan transaksi yang aman.
+
+**Pemeliharaan:**
+Monitoring performa website secara berkala, update koleksi tas baru, dan perbaikan bug UI/UX berdasarkan masukan dari pengguna.
+
