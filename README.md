@@ -100,3 +100,26 @@ Situs menggunakan HTTPS, serta menerapkan praktik standar perlindungan data peng
 **Pemeliharaan:**
 Monitoring performa website secara berkala, update koleksi tas baru, dan perbaikan bug UI/UX berdasarkan masukan dari pengguna.
 
+## 9. Rencana Penggunaan Data Analytics
+Menggunakan analytics tracker untuk memantau trafik pengunjung dan perilaku belanja.
+
+**Metrik Utama:**
+- Trafik Harian & Sumber Pengunjung (Sosmed vs Organik).
+- Conversion Rate (Persentase pengunjung yang melakukan pembelian).
+- Cart Abandonment Rate (Tingkat keranjang yang ditinggalkan).
+- Best-Selling Colors & Models.
+
+**Pemanfaatan Data:**
+Data penjualan digunakan untuk memprediksi tren warna musim berikutnya, menyesuaikan stok inventaris ransel vs sling bag, dan menargetkan ulang (retargeting) iklan kepada pengunjung yang meninggalkan keranjang.
+
+## 10. Struktur Folder
+- `css/`: Menyimpan file stylesheet (`style.css`).
+- `images/`: Menyimpan aset gambar produk tas dan banner.
+- `js/`: Menyimpan file logika Javascript (fungsionalitas keranjang, interaksi halaman, filter katalog).
+- `index.html`: Halaman Beranda VibeCarry.
+- `catalog.html`: Halaman Katalog Produk (Semua tas, Sling Bag, Backpack).
+- `cart.html`: Halaman Keranjang Belanja.
+- `checkout.html`: Halaman Checkout Pemesanan.
+- `business.html`: Halaman Tentang & Bisnis VibeCarry.
+- `README.md`: Dokumen ikhtisar proyek VibeCarry.
+
