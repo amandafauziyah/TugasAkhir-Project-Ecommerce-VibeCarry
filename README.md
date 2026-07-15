@@ -1,3 +1,5 @@
+[NAMA] : AMANDA FAUZIYAH [NIM] 209250049 [KELAS] : ADMINISTRASI BISNIS 2/2025 [DOSEN] : Yoki Oktorian Sukardi, S.Kom., M.A.B. [MATA KULIAH] : APLIKASI KOMPUTER IT II
+
 ## Daftar Isi
 1. [Profil Bisnis & Value Proposition](#1-profil-bisnis--value-proposition)
 2. [Target Market & Segmentasi](#2-target-market--segmentasi)
