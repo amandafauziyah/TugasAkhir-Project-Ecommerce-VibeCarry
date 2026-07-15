@@ -123,3 +123,11 @@ Data penjualan digunakan untuk memprediksi tren warna musim berikutnya, menyesua
 - `business.html`: Halaman Tentang & Bisnis VibeCarry.
 - `README.md`: Dokumen ikhtisar proyek VibeCarry.
 
+## 11. Deployment ke GitHub Pages
+Karena website ini statis, Anda dapat melakukan *hosting* gratis menggunakan **GitHub Pages**.
+
+1. **Buat Repository Baru** di GitHub (misal: `vibecarry-store`).
+2. **Unggah File**: Masukkan semua isi folder `v5` ke dalam *repository* tersebut.
+3. **Aktifkan Pages**: Masuk ke **Settings** > **Pages** > Pilih **Deploy from a branch** > Pilih *branch* `main` atau `master` > Klik **Save**.
+4. Dalam 1-3 menit, website VibeCarry Anda akan aktif dan bisa diakses publik.
+
