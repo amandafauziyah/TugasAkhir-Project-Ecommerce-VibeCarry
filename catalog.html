@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog — VibeCarry</title>
+  <meta name="description" content="Katalog lengkap VibeCarry: Sling Bag & Backpack premium. Filter kategori, urutkan, dan temukan tasmu!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-announcement">✦ FREE ONGKIR pembelian di atas Rp200.000 ✦</div>
+  <div class="nav-inner">
+    <nav class="nav-left">
+      <a href="catalog.html?type=Sling+Bag" class="nav-link" id="nl-sling">Sling Bag</a>
+      <a href="catalog.html?type=Backpack" class="nav-link" id="nl-back">Backpack</a>
+      <a href="catalog.html" class="nav-link active">Semua Koleksi</a>
+      <a href="business.html" class="nav-link">Tentang Kami</a>
+    </nav>
+    <a href="index.html" class="brand-logo">Vibe<span>Carry</span></a>
+    <div class="nav-right">
+      <a href="cart.html" class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Keranjang <span class="cart-count" id="cart-count">0</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> · <span id="page-crumb">Katalog</span></div>
+    <h1 id="page-title">Semua Koleksi</h1>
+  </div>
+</div>
+
+<section class="section bg-white">
+  <div class="container">
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <button class="filter-chip active" data-f="Semua">Semua</button>
+      <button class="filter-chip" data-f="Sling Bag">Sling Bag</button>
+      <button class="filter-chip" data-f="Backpack">Backpack</button>
+      <button class="filter-chip" data-f="NEW">New Arrivals</button>
+      <button class="filter-chip" data-f="SALE">Sale</button>
+      <button class="filter-chip" data-f="BEST">Best Seller</button>
+      <div class="search-bar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="search-input" placeholder="Cari produk..." />
+      </div>
+      <select class="sort-select" id="sort">
+        <option value="featured">Terpopuler</option>
+        <option value="price-asc">Harga ↑</option>
+        <option value="price-desc">Harga ↓</option>
+        <option value="name">Nama A–Z</option>
+        <option value="rating">Rating Tertinggi</option>
+      </select>
+    </div>
+
+    <p style="font-size:.85rem;color:var(--mid);margin-bottom:var(--sp5)" id="result-label"></p>
+
+    <div class="product-grid" id="catalog-grid"></div>
+    <div class="empty-state" id="empty" style="display:none">
+      <div class="empty-icon">🔍</div>
+      <h3>Tidak ada produk</h3>
+      <p>Coba ubah filter atau kata kunci pencarianmu.</p>
+      <button class="btn btn-dark" onclick="resetFilters()">Reset Filter</button>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-inner" id="modal-inner"></div>
+  </div>
+</div>
+
+<footer class="footer" style="padding:var(--sp6) 0">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© <span id="yr"></span> VibeCarry. All rights reserved.</span>
+      <a href="index.html" style="color:var(--gold)">← Kembali ke Beranda</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script>
+document.getElementById("yr").textContent = new Date().getFullYear();
+const BADGE_CLASS = { NEW:"badge-new", SALE:"badge-sale", BEST:"badge-best", HIT:"badge-hit" };
+const BADGE_LABEL = { NEW:"NEW", SALE:"SALE", BEST:"BEST SELLER", HIT:"HOT 🔥" };
+
+function updateBadge() {
+  const c = Cart.count(), el = document.getElementById("cart-count");
+  if (el) { el.textContent = c; el.style.display = c > 0 ? "inline-flex" : "none"; }
+}
+let _t;
+function showToast(msg) {
+  let t = document.querySelector(".toast");
+  if (!t) { t = Object.assign(document.createElement("div"),{className:"toast"}); document.body.appendChild(t); }
+  t.textContent = msg; void t.offsetWidth; t.classList.add("show");
+  clearTimeout(_t); _t = setTimeout(() => t.classList.remove("show"), 2800);
+}
+document.getElementById("nav-toggle")?.addEventListener("click", () => window.location.href = "index.html");
+
+/* State */
+const params = new URLSearchParams(location.search);
+const state = {
+  filter: params.get("type") || params.get("badge") || "Semua",
+  search: (params.get("q") || "").toLowerCase(),
+  sort: "featured"
+};
+
+/* Pre-select chip dari URL*/
+function syncChips() {
+  document.querySelectorAll(".filter-chip").forEach(c => {
+    c.classList.toggle("active", c.dataset.f === state.filter);
+  });
+  if (state.search) document.getElementById("search-input").value = params.get("q");
+  const titleMap = { "Sling Bag": "Sling Bag Collection", "Backpack": "Backpack Collection", "NEW": "New Arrivals", "SALE": "Sale Collection", "BEST": "Best Sellers", "Semua": "Semua Koleksi" };
+  const t = titleMap[state.filter] || "Semua Koleksi";
+  document.getElementById("page-title").textContent = t;
+  document.getElementById("page-crumb").textContent = t;
+}
+
+/* Filter chip */
+document.querySelectorAll(".filter-chip").forEach(chip => chip.addEventListener("click", () => {
+  document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+  chip.classList.add("active"); state.filter = chip.dataset.f; apply();
+}));
+document.getElementById("search-input").addEventListener("input", e => { state.search = e.target.value.toLowerCase(); apply(); });
+document.getElementById("sort").addEventListener("change", e => { state.sort = e.target.value; apply(); });
+
+function resetFilters() {
+  state.filter = "Semua"; state.search = ""; state.sort = "featured";
+  document.querySelectorAll(".filter-chip").forEach(c => c.classList.toggle("active", c.dataset.f === "Semua"));
+  document.getElementById("search-input").value = "";
+  document.getElementById("sort").value = "featured";
+  apply();
+}
+
+function handleImgError(img) {
+  const type = img.dataset.type || "Keranjang";
+  const c = document.createElement("canvas"); c.width = 400; c.height = 530;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#F2F2F2"; ctx.fillRect(0,0,400,530);
+  ctx.fillStyle = "#E8E8E8"; ctx.fillRect(40,40,320,400);
+  ctx.font = "48px serif"; ctx.textAlign = "center";
+  ctx.fillText(type === "Backpack" ? "🎒" : "👜", 200, 200);
+  ctx.fillStyle = "#C9A97E"; ctx.font = "bold 16px serif"; ctx.fillText("VIBECARRY", 200, 370);
+  ctx.fillStyle = "#6B6B6B"; ctx.font = "12px Inter,sans-serif"; ctx.fillText("Photo Coming Soon", 200, 392);
+  img.src = c.toDataURL();
+}
+
+/* Apply filter */
+function apply() {
+  let list = PRODUCTS.filter(p => {
+    const fs = state.filter;
+    const matchFilter = fs === "Semua" || p.type === fs || p.badge === fs;
+    const matchSearch = !state.search || p.name.toLowerCase().includes(state.search) || p.type.toLowerCase().includes(state.search);
+    return matchFilter && matchSearch;
+  });
+  if (state.sort === "price-asc")   list.sort((a,b) => a.price - b.price);
+  else if (state.sort === "price-desc") list.sort((a,b) => b.price - a.price);
+  else if (state.sort === "name")   list.sort((a,b) => a.name.localeCompare(b.name,"id"));
+  else if (state.sort === "rating") list.sort((a,b) => b.rating - a.rating);
+  renderGrid(list);
+}
+
+function renderGrid(list) {
+  const grid = document.getElementById("catalog-grid");
+  const empty = document.getElementById("empty");
+  const label = document.getElementById("result-label");
+  label.textContent = list.length === PRODUCTS.length
+    ? `Menampilkan semua ${PRODUCTS.length} produk`
+    : `Menampilkan ${list.length} dari ${PRODUCTS.length} produk`;
+  if (!list.length) { grid.innerHTML = ""; empty.style.display = "block"; return; }
+  empty.style.display = "none";
+  grid.innerHTML = list.map(p => {
+    const d = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+    return `
+    <div class="product-card">
+      <div class="product-thumb">
+        ${p.badge ? `<span class="product-badge ${BADGE_CLASS[p.badge]}">${BADGE_LABEL[p.badge]}</span>` : ""}
+        <img src="${p.image}" alt="${p.name}" loading="lazy" data-type="${p.type}" onerror="handleImgError(this)" />
+        <button class="product-wish" data-wish="${p.id}">🤍</button>
+        <button class="product-cta-bar" data-add="${p.id}">🛍 Tambah ke Keranjang</button>
+      </div>
+      <div class="product-body">
+        <div class="product-type">${p.type}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-foot">
+          <div>
+            <span class="price-now">${formatRupiah(p.price)}</span>
+            ${p.oldPrice ? `<span class="price-old">${formatRupiah(p.oldPrice)}</span><span class="price-disc">-${d}%</span>` : ""}
+          </div>
+          <div class="star-row"><span class="stars" style="font-size:.75rem">★★★★★</span><span class="star-count">(${p.reviews})</span></div>
+        </div>
+        ${colorSwatchesHTML(p.colorHex, p.colors)}
+        <button class="btn btn-outline-dark btn-sm btn-block" data-detail="${p.id}" style="margin-top:.75rem">Lihat Detail</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* Delagasi Click */
+document.getElementById("catalog-grid").addEventListener("click", e => {
+  const add  = e.target.closest("[data-add]");
+  const wish = e.target.closest("[data-wish]");
+  const det  = e.target.closest("[data-detail]");
+  if (add)  { const p = getProductById(add.dataset.add); if (p) { Cart.add(p.id); showToast(`${p.name} ditambahkan 🛍️`); updateBadge(); } }
+  if (wish) { wish.textContent = wish.textContent.trim() === "🤍" ? "❤️" : "🤍"; showToast("Ditambahkan ke wishlist ♡"); }
+  if (det)  { openModal(det.dataset.detail); }
+});
+
+/* Modal */
+const modalEl = document.getElementById("modal"), modalInner = document.getElementById("modal-inner");
+function openModal(id) {
+  const p = getProductById(id); if (!p) return;
+  const d = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+  const colorChips = p.colors.map((c,i) => `<span style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border:1.5px solid var(--light);border-radius:999px;font-size:.75rem;font-weight:600;background:var(--white)"><span style="width:10px;height:10px;border-radius:50%;background:${p.colorHex[i]};border:1px solid rgba(0,0,0,.12)"></span>${c}</span>`).join("");
+  modalInner.innerHTML = `
+    <div class="modal-img"><img src="${p.image}" alt="${p.name}" onerror="handleImgError(this)" data-type="${p.type}" /></div>
+    <div class="modal-details">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem">${p.type}</div>
+      <h2 style="font-family:var(--serif);font-size:1.35rem;font-weight:700;line-height:1.2;margin-bottom:.6rem">${p.name}</h2>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+        <span style="font-size:1.35rem;font-weight:800">${formatRupiah(p.price)}</span>
+        ${p.oldPrice ? `<span style="text-decoration:line-through;color:var(--mid);font-size:.85rem">${formatRupiah(p.oldPrice)}</span><span style="color:#DC2626;font-size:.75rem;font-weight:700">-${d}%</span>` : ""}
+      </div>
+      <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mid);margin-bottom:.4rem">Pilihan Warna</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem">${colorChips}</div>
+      <p style="font-size:.85rem;color:var(--mid);line-height:1.8;margin-bottom:.75rem">${p.desc}</p>
+      <ul style="font-size:.82rem;color:var(--mid);padding-left:1.1rem;margin-bottom:1rem;line-height:2">${p.features.map(f=>`<li>${f}</li>`).join("")}</ul>
+      <table class="spec-table" style="margin-bottom:1rem">
+        <tr><td>Bahan</td><td>${p.material}</td></tr>
+        <tr><td>Stok</td><td>${p.stock} pcs</td></tr>
+        <tr><td>Rating</td><td>★ ${p.rating} (${p.reviews} ulasan)</td></tr>
+      </table>
+      <button class="btn btn-dark btn-block" data-add="${p.id}" style="margin-bottom:.5rem">🛍️ Tambah ke Keranjang</button>
+      <a href="cart.html" class="btn btn-gold-outline btn-block">Lihat Keranjang</a>
+    </div>`;
+  modalEl.classList.add("open"); modalEl.style.display = "flex"; modalEl.setAttribute("aria-hidden","false");
+}
+function closeModal() { modalEl.classList.remove("open"); modalEl.style.display = "none"; }
+document.getElementById("modal-close")?.addEventListener("click", closeModal);
+modalEl?.addEventListener("click", e => { if (e.target === modalEl) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+modalInner?.addEventListener("click", e => {
+  const b = e.target.closest("[data-add]"); if (!b) return;
+  const p = getProductById(b.dataset.add); if (!p) return;
+  Cart.add(p.id); showToast(`${p.name} ditambahkan 🛍️`); updateBadge(); closeModal();
+});
+
+document.addEventListener("DOMContentLoaded", () => { updateBadge(); syncChips(); apply(); });
+document.addEventListener("cart:change", updateBadge);
+</script>
+</body>
+</html>
+
+

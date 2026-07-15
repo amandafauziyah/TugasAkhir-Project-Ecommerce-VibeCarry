@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — VibeCarry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-announcement">🔒 Checkout Aman - SSL Encrypted &nbsp;✦&nbsp; FREE ONGKIR belanja ≥ Rp200.000</div>
+  <div class="nav-inner">
+    <nav class="nav-left"><a href="cart.html" class="nav-link">Kembali ke Keranjang</a>
+      <a href="business.html" class="nav-link">Tentang Kami</a></nav>
+    <a href="index.html" class="brand-logo">Vibe<span>Carry</span></a>
+    <div class="nav-right"><span class="nav-icon" style="color:rgba(255,255,255,.4);cursor:default">keranjang</span></div>
+  </div>
+</header>
+
+<div class="page-hero" style="padding:var(--sp7) 0 var(--sp6)">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> · <a href="cart.html">Keranjang</a> · <span>Checkout</span></div>
+    <h1>Checkout</h1>
+    <p style="color:rgba(255,255,255,.5);margin-top:.5rem">Lengkapi data pengiriman dan pilih metode pembayaran.</p>
+  </div>
+</div>
+
+<section class="section bg-white">
+  <div class="container">
+    <div class="checkout-grid">
+      <!-- Form Kiri -->
+      <div>
+        <!-- info Shipping -->
+        <div class="form-card">
+          <h3>📦 Data Pengiriman</h3>
+          <form id="checkout-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group"><label for="fname">Nama Depan *</label><input class="input" type="text" id="fname" placeholder="Nama depan" required /><span class="error-msg" id="err-fname"></span></div>
+              <div class="form-group"><label for="lname">Nama Belakang *</label><input class="input" type="text" id="lname" placeholder="Nama belakang" required /><span class="error-msg" id="err-lname"></span></div>
+              <div class="form-group full"><label for="email">Email *</label><input class="input" type="email" id="email" placeholder="email@kamu.com" required /><span class="error-msg" id="err-email"></span></div>
+              <div class="form-group full"><label for="phone">No. HP / WhatsApp *</label><input class="input" type="tel" id="phone" placeholder="08xxxxxxxxxx" required /><span class="error-msg" id="err-phone"></span></div>
+              <div class="form-group full"><label for="address">Alamat Lengkap *</label><textarea class="input" id="address" rows="3" placeholder="Jalan, RT/RW, No. Rumah..." required></textarea><span class="error-msg" id="err-address"></span></div>
+              <div class="form-group"><label for="city">Kota / Kabupaten *</label><input class="input" type="text" id="city" placeholder="Jakarta Selatan" required /><span class="error-msg" id="err-city"></span></div>
+              <div class="form-group"><label for="zip">Kode Pos *</label><input class="input" type="text" id="zip" placeholder="12345" maxlength="5" required /><span class="error-msg" id="err-zip"></span></div>
+              <div class="form-group"><label for="province">Provinsi *</label>
+                <select class="select" id="province" required>
+                  <option value="">-- Pilih Provinsi --</option>
+                  <option>DKI Jakarta</option><option>Jawa Barat</option><option>Jawa Tengah</option>
+                  <option>Jawa Timur</option><option>Banten</option><option>Bali</option>
+                  <option>Sumatera Utara</option><option>Sulawesi Selatan</option><option>Kalimantan Timur</option>
+                  <option>Papua</option><option>Lainnya</option>
+                </select><span class="error-msg" id="err-province"></span>
+              </div>
+              <div class="form-group"><label for="courier">Kurir Pengiriman *</label>
+                <select class="select" id="courier" required>
+                  <option value="">-- Pilih Kurir --</option>
+                  <option>JNE REG (2–3 hari)</option><option>JNE YES (1–2 hari)</option>
+                  <option>J&T Express (2–3 hari)</option><option>SiCepat REG (2–4 hari)</option>
+                  <option>Anteraja (1–3 hari)</option>
+                </select><span class="error-msg" id="err-courier"></span>
+              </div>
+              <div class="form-group full"><label for="notes">Catatan (opsional)</label><textarea class="input" id="notes" rows="2" placeholder="Instruksi khusus untuk kurir, warna/ukuran pilihan, dll..."></textarea></div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Payment -->
+        <div class="form-card">
+          <h3>💳 Metode Pembayaran</h3>
+          <div class="pay-options" id="pay-options">
+            <label class="pay-opt selected"><input type="radio" name="pay" value="transfer" checked /><span class="pay-opt-icon">🏦</span><div><div class="pay-opt-name">Transfer Bank</div><div class="pay-opt-desc">BCA · Mandiri · BNI · BRI</div></div></label>
+            <label class="pay-opt"><input type="radio" name="pay" value="gopay" /><span class="pay-opt-icon">💚</span><div><div class="pay-opt-name">GoPay</div><div class="pay-opt-desc">Dompet digital Gojek</div></div></label>
+            <label class="pay-opt"><input type="radio" name="pay" value="ovo" /><span class="pay-opt-icon">💜</span><div><div class="pay-opt-name">OVO</div><div class="pay-opt-desc">Dompet digital OVO</div></div></label>
+            <label class="pay-opt"><input type="radio" name="pay" value="qris" /><span class="pay-opt-icon">📱</span><div><div class="pay-opt-name">QRIS</div><div class="pay-opt-desc">Scan QR dari semua bank & e-wallet</div></div></label>
+            <label class="pay-opt"><input type="radio" name="pay" value="cod" /><span class="pay-opt-icon">💵</span><div><div class="pay-opt-name">COD (Bayar di Tempat)</div><div class="pay-opt-desc">Tersedia untuk area tertentu</div></div></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Kanan -->
+      <div>
+        <div class="summary-card">
+          <h3>Ringkasan Pesanan</h3>
+          <div id="order-items" style="border-bottom:1px solid var(--light);padding-bottom:var(--sp4);margin-bottom:var(--sp4)"></div>
+          <div class="summary-row"><span>Subtotal</span><span id="co-sub">—</span></div>
+          <div class="summary-row"><span>Ongkir</span><span id="co-ship">—</span></div>
+          <div class="summary-row total"><span>Total</span><span id="co-total">—</span></div>
+          <button class="btn btn-primary btn-block btn-icon" id="pay-btn" style="margin-top:var(--sp5)">
+            Bayar Sekarang 🔒
+          </button>
+          <div style="text-align:center;font-size:.72rem;color:var(--mid);margin-top:.75rem">🔒 Transaksi aman · SSL Encrypted · Data terlindungi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Success overlay -->
+<div class="success-overlay" id="success-overlay">
+  <div class="success-box">
+    <div class="spinner" id="spinner"></div>
+    <div class="success-icon" id="success-icon" style="display:none">✅</div>
+    <h2 id="success-title" style="font-size:1.6rem;margin-bottom:.5rem">Memproses...</h2>
+    <p id="success-msg" style="color:var(--mid)">Harap tunggu sebentar.</p>
+    <div id="success-extra" style="display:none">
+      <div class="order-number" id="order-number"></div>
+      <a href="index.html" class="btn btn-dark btn-block">Kembali ke Beranda 🏠</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer" style="padding:var(--sp6) 0">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© <span id="yr"></span> VibeCarry.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script>
+/* CART_KEY di cart.js */
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+function handleImgError(img) {
+  const type = img.dataset.type || "Bag";
+  const c = document.createElement("canvas"); c.width = 120; c.height = 150;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#F2F2F2"; ctx.fillRect(0,0,120,150);
+  ctx.font = "32px serif"; ctx.textAlign = "center";
+  ctx.fillText(type === "Backpack" ? "🎒" : "👜", 60, 80);
+  img.src = c.toDataURL();
+}
+
+/* Payment option */
+document.getElementById("pay-options").addEventListener("change", e => {
+  if (e.target.type !== "radio") return;
+  document.querySelectorAll(".pay-opt").forEach(o => o.classList.toggle("selected", o.querySelector("input") === e.target));
+});
+
+/* Form validasi */
+const VALIDATORS = {
+  fname:    v => v.trim().length >= 2,
+  lname:    v => v.trim().length >= 2,
+  email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+  phone:    v => /^(08|\+628)\d{7,11}$/.test(v.replace(/\s/g,"")),
+  address:  v => v.trim().length >= 10,
+  city:     v => v.trim().length >= 2,
+  zip:      v => /^\d{5}$/.test(v),
+  province: v => v !== "",
+  courier:  v => v !== "",
+};
+const MESSAGES = {
+  fname:    "Nama depan minimal 2 karakter.",
+  lname:    "Nama belakang minimal 2 karakter.",
+  email:    "Format email tidak valid.",
+  phone:    "Nomor HP tidak valid (08xx...).",
+  address:  "Alamat minimal 10 karakter.",
+  city:     "Kota tidak boleh kosong.",
+  zip:      "Kode pos harus 5 digit.",
+  province: "Pilih provinsi.",
+  courier:  "Pilih kurir pengiriman.",
+};
+function validateAll() {
+  let ok = true;
+  Object.keys(VALIDATORS).forEach(id => {
+    const el = document.getElementById(id), err = document.getElementById("err-"+id);
+    if (!el) return;
+    const pass = VALIDATORS[id](el.value);
+    el.classList.toggle("invalid", !pass);
+    if (err) err.textContent = pass ? "" : MESSAGES[id];
+    if (!pass) ok = false;
+  });
+  return ok;
+}
+
+/* Render order*/
+function renderSummary() {
+  const items = Cart.all();
+  if (!items.length) { window.location.href = "cart.html"; return; }
+  let sub = 0;
+  document.getElementById("order-items").innerHTML = items.map(it => {
+    const p = getProductById(it.id); if (!p) return "";
+    sub += p.price * it.qty;
+    return `<div style="display:flex;align-items:center;gap:.75rem;padding:.45rem 0;border-bottom:1px solid var(--light)">
+      <img src="${p.image}" style="width:48px;height:58px;object-fit:cover;border-radius:var(--r-sm);flex-shrink:0" onerror="handleImgError(this)" data-type="${p.type}" />
+      <div style="flex:1">
+        <div style="font-size:.82rem;font-weight:700;line-height:1.3">${p.name}</div>
+        <div style="font-size:.72rem;color:var(--mid)">${p.type} · ×${it.qty}</div>
+        ${colorSwatchesHTML(p.colorHex, p.colors, 3)}
+      </div>
+      <div style="font-size:.88rem;font-weight:800;white-space:nowrap">${formatRupiah(p.price*it.qty)}</div>
+    </div>`;
+  }).join("");
+  const ship = sub >= 200000 ? 0 : 20000;
+  document.getElementById("co-sub").textContent   = formatRupiah(sub);
+  document.getElementById("co-ship").textContent  = ship === 0 ? "Gratis ✅" : formatRupiah(ship);
+  document.getElementById("co-total").textContent = formatRupiah(sub + ship);
+}
+
+/* Pay button */
+document.getElementById("pay-btn").addEventListener("click", () => {
+  if (!validateAll()) { document.querySelector(".input.invalid")?.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+  document.getElementById("success-overlay").classList.add("open");
+  document.getElementById("success-overlay").style.display = "flex";
+  setTimeout(() => {
+    document.getElementById("spinner").style.display      = "none";
+    document.getElementById("success-icon").style.display = "block";
+    document.getElementById("success-title").textContent  = "Pesanan Berhasil! 🎉";
+    document.getElementById("success-msg").textContent    = "Terima kasih! Pesananmu sedang diproses dan akan segera dikirim ke alamatmu.";
+    const oid = "VC-" + Date.now().toString(36).toUpperCase();
+    document.getElementById("order-number").textContent   = `Order ID: ${oid}`;
+    document.getElementById("success-extra").style.display = "block";
+    Cart.clear();
+  }, 2500);
+});
+
+document.addEventListener("DOMContentLoaded", renderSummary);
+</script>
+</body>
+</html>
+
+

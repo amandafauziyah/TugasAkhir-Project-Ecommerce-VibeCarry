@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang — VibeCarry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-announcement">✅ Transaksi Aman &amp; Terenkripsi &nbsp;✦&nbsp; FREE ONGKIR belanja ≥ Rp200.000</div>
+  <div class="nav-inner">
+    <nav class="nav-left">
+      <a href="catalog.html" class="nav-link">Lanjutkan Belanja</a>
+      <a href="business.html" class="nav-link">Tentang Kami</a>
+    </nav>
+    <a href="index.html" class="brand-logo">Vibe<span>Carry</span></a>
+    <div class="nav-right">
+      <a href="cart.html" class="nav-icon active">Keranjang <span class="cart-count" id="cart-count">0</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero" style="padding:var(--sp8) 0 var(--sp7)">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a> · <span>Keranjang</span></div>
+    <h1>Keranjang Kamu</h1>
+  </div>
+</div>
+
+<section class="section bg-white">
+  <div class="container">
+
+    <div id="cart-empty" style="display:none">
+      <div class="empty-state">
+        <div class="empty-icon">🛍️</div>
+        <h3>Keranjang Kamu Kosong</h3>
+        <p>Belum ada produk di keranjangmu. Yuk, temukan tas idamanmu!</p>
+        <a href="catalog.html" class="btn btn-dark">Jelajahi Koleksi →</a>
+      </div>
+    </div>
+
+    <div class="cart-layout" id="cart-main" style="display:none">
+      <!-- Items -->
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp5);padding-bottom:var(--sp4);border-bottom:2px solid var(--black)">
+          <h2 style="font-family:var(--serif);font-size:1.35rem;font-weight:700">Produk di Keranjang <span id="item-count" style="color:var(--gold)"></span></h2>
+          <button onclick="Cart.clear();showToast('Keranjang dikosongkan')" style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mid);cursor:pointer;background:none;border:none">Hapus Semua</button>
+        </div>
+        <div id="cart-items"></div>
+      </div>
+
+      <!-- Summary -->
+      <div>
+        <div class="summary-card">
+          <h3>Ringkasan Pesanan</h3>
+          <div id="summary-items" style="border-bottom:1px solid var(--light);padding-bottom:var(--sp4);margin-bottom:var(--sp4)"></div>
+          <div class="summary-row"><span>Subtotal</span><span id="co-sub">Rp0</span></div>
+          <div class="summary-row"><span>Ongkir</span><span id="co-ship" style="color:#16A34A">Gratis</span></div>
+          <div class="summary-row"><span style="color:#DC2626">Diskon Promo</span><span id="co-disc" style="color:#DC2626">-Rp0</span></div>
+          <div class="summary-row total"><span>Total</span><span id="co-total">Rp0</span></div>
+          <div class="promo-row">
+            <input type="text" id="promo-input" placeholder="Kode promo" maxlength="20" />
+            <button class="btn btn-dark btn-sm" id="promo-btn">Pakai</button>
+          </div>
+          <div id="promo-msg" style="font-size:.78rem;padding:.25rem 0"></div>
+          <a href="checkout.html" class="btn btn-primary btn-block btn-icon" style="margin-top:var(--sp4)">
+            Lanjut ke Checkout
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="catalog.html" class="btn btn-outline-dark btn-block" style="margin-top:.5rem">Lanjutkan Belanja</a>
+          <div style="text-align:center;font-size:.72rem;color:var(--mid);margin-top:var(--sp4)">Transaksi aman & terenkripsi</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Rekomendasi -->
+<section class="section" id="rec-sec" style="display:none">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp6)">
+      <h2 style="font-family:var(--serif);font-size:1.5rem;font-weight:700">Mungkin Kamu Suka</h2>
+      <a href="catalog.html" class="btn btn-outline-dark btn-sm">Lihat Semua</a>
+    </div>
+    <div class="product-grid" id="rec-grid" style="grid-template-columns:repeat(4,1fr)"></div>
+  </div>
+</section>
+
+<footer class="footer" style="padding:var(--sp6) 0">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© <span id="yr"></span> VibeCarry.</span>
+      <a href="index.html" style="color:var(--gold)">← Beranda</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script>
+/* NOTE: CART_KEY already in cart.js — do NOT redeclare */
+document.getElementById("yr").textContent = new Date().getFullYear();
+const BADGE_CLASS = { NEW:"badge-new", SALE:"badge-sale", BEST:"badge-best", HIT:"badge-hit" };
+const BADGE_LABEL = { NEW:"NEW", SALE:"SALE", BEST:"BEST SELLER", HIT:"HOT 🔥" };
+
+function updateBadge() {
+  const c = Cart.count(), el = document.getElementById("cart-count");
+  if (el) { el.textContent = c; el.style.display = c > 0 ? "inline-flex" : "none"; }
+}
+let _t, promoDisc = 0;
+const PROMOS = { "VIBECARRY10": .10, "NEWBAG": .15, "HEMAT20": .20 };
+
+function showToast(msg) {
+  let t = document.querySelector(".toast");
+  if (!t) { t = Object.assign(document.createElement("div"),{className:"toast"}); document.body.appendChild(t); }
+  t.textContent = msg; void t.offsetWidth; t.classList.add("show");
+  clearTimeout(_t); _t = setTimeout(() => t.classList.remove("show"), 2800);
+}
+
+function handleImgError(img) {
+  const type = img.dataset.type || "Bag";
+  const c = document.createElement("canvas"); c.width = 200; c.height = 260;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#F2F2F2"; ctx.fillRect(0,0,200,260);
+  ctx.font = "36px serif"; ctx.textAlign = "center";
+  ctx.fillText(type === "Backpack" ? "🎒" : "👜", 100, 120);
+  ctx.fillStyle = "#C9A97E"; ctx.font = "bold 12px serif"; ctx.fillText("VIBECARRY", 100, 200);
+  img.src = c.toDataURL();
+}
+
+function renderCart() {
+  const items  = Cart.all();
+  const empty  = document.getElementById("cart-empty");
+  const main   = document.getElementById("cart-main");
+  const recSec = document.getElementById("rec-sec");
+
+  if (!items || !items.length) {
+    empty.style.display = "block"; main.style.display = "none"; recSec.style.display = "none"; return;
+  }
+  empty.style.display = "none"; main.style.display = "grid";
+
+  let sub = 0;
+  const rows = items.map(item => {
+    const p = getProductById(item.id); if (!p) return "";
+    const line = p.price * item.qty; sub += line;
+    return `
+    <div class="cart-item">
+      <img src="${p.image}" alt="${p.name}" onerror="handleImgError(this)" data-type="${p.type}" style="width:100px;height:120px;object-fit:cover;border-radius:var(--r)" />
+      <div>
+        <div class="cart-item-cat">${p.type}</div>
+        <div class="cart-item-name">${p.name}</div>
+        <div class="cart-item-price">${formatRupiah(p.price)}</div>
+        ${colorSwatchesHTML(p.colorHex, p.colors, 3)}
+        <div class="cart-item-foot">
+          <div class="qty-ctrl">
+            <button data-minus="${p.id}">−</button>
+            <span>${item.qty}</span>
+            <button data-plus="${p.id}">+</button>
+          </div>
+          <span class="cart-line-total">${formatRupiah(line)}</span>
+          <button class="btn-remove" data-remove="${p.id}">Hapus</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("cart-items").innerHTML = rows;
+  document.getElementById("item-count").textContent = `(${items.reduce((s,i) => s+i.qty, 0)} item)`;
+
+  const ship = sub >= 200000 ? 0 : 20000;
+  const disc = Math.round(sub * promoDisc);
+  const total = sub + ship - disc;
+  document.getElementById("co-sub").textContent   = formatRupiah(sub);
+  document.getElementById("co-ship").textContent  = ship === 0 ? "✅ Gratis" : formatRupiah(ship);
+  document.getElementById("co-disc").textContent  = disc > 0 ? `-${formatRupiah(disc)}` : "-Rp0";
+  document.getElementById("co-total").textContent = formatRupiah(total);
+
+  /* Mini summary items */
+  document.getElementById("summary-items").innerHTML = items.map(item => {
+    const p = getProductById(item.id); if (!p) return "";
+    return `<div style="display:flex;align-items:center;gap:.75rem;padding:.4rem 0">
+      <img src="${p.image}" style="width:44px;height:52px;object-fit:cover;border-radius:var(--r-sm)" onerror="handleImgError(this)" data-type="${p.type}" />
+      <div style="flex:1"><div style="font-size:.82rem;font-weight:600;color:var(--black)">${p.name}</div><div style="font-size:.72rem;color:var(--mid)">×${item.qty}</div></div>
+      <div style="font-size:.85rem;font-weight:800">${formatRupiah(p.price*item.qty)}</div>
+    </div>`;
+  }).join("");
+
+  /* Recommendations */
+  const inCart = items.map(i => i.id);
+  const recs   = PRODUCTS.filter(p => !inCart.includes(p.id)).slice(0, 4);
+  if (recs.length) {
+    recSec.style.display = "block";
+    document.getElementById("rec-grid").innerHTML = recs.map(p => `
+      <div class="product-card">
+        <div class="product-thumb">
+          ${p.badge ? `<span class="product-badge ${BADGE_CLASS[p.badge]}">${BADGE_LABEL[p.badge]}</span>` : ""}
+          <img src="${p.image}" alt="${p.name}" loading="lazy" data-type="${p.type}" onerror="handleImgError(this)" />
+          <button class="product-cta-bar" data-rec-add="${p.id}">🛍 Tambah ke Keranjang</button>
+        </div>
+        <div class="product-body">
+          <div class="product-type">${p.type}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-foot"><span class="price-now">${formatRupiah(p.price)}</span></div>
+        </div>
+      </div>`).join("");
+  } else { recSec.style.display = "none"; }
+}
+
+/* Cart item events */
+document.getElementById("cart-items").addEventListener("click", e => {
+  const plus   = e.target.closest("[data-plus]");
+  const minus  = e.target.closest("[data-minus]");
+  const remove = e.target.closest("[data-remove]");
+  if (plus)   Cart.add(plus.dataset.plus);
+  if (minus)  Cart.remove(minus.dataset.minus);
+  if (remove) { Cart.removeAll(remove.dataset.remove); showToast("Produk dihapus dari keranjang"); }
+});
+
+/* Rec grid events */
+document.getElementById("rec-grid").addEventListener("click", e => {
+  const b = e.target.closest("[data-rec-add]"); if (!b) return;
+  const p = getProductById(b.dataset.recAdd); if (!p) return;
+  Cart.add(p.id); showToast(`${p.name} ditambahkan 🛍️`); updateBadge();
+});
+
+/* Promo code */
+document.getElementById("promo-btn").addEventListener("click", () => {
+  const raw  = document.getElementById("promo-input").value.trim().toUpperCase();
+  const msg  = document.getElementById("promo-msg");
+  if (PROMOS[raw]) {
+    promoDisc = PROMOS[raw]; msg.style.color = "#16A34A";
+    msg.textContent = `✅ Diskon ${promoDisc * 100}% berhasil!`; renderCart(); showToast("Kode promo berhasil 🎉");
+  } else {
+    msg.style.color = "#DC2626"; msg.textContent = `❌ Kode "${raw}" tidak valid.`;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => { updateBadge(); renderCart(); });
+document.addEventListener("cart:change", () => { updateBadge(); renderCart(); });
+</script>
+</body>
+</html>
+
+
+

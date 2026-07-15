@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VibeCarry — Carry your Vibe, Anywhere</title>
+  <meta name="description" content="VibeCarry — destinasi utama tas selempang &amp; ransel premium yang memadukan estetika menggemaskan dengan sentuhan anggun berkelas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+   <!-- Navbar -->
+
+<header class="navbar" id="navbar">
+  <div class="nav-announcement">
+    ✦ FREE ONGKIR pembelian di atas Rp200.000 &nbsp;✦&nbsp; Garansi keaslian produk ✦
+  </div>
+  <div class="nav-inner">
+    <!-- Left nav -->
+    <nav class="nav-left">
+      <a href="catalog.html?type=Sling+Bag" class="nav-link">Sling Bag</a>
+      <a href="catalog.html?type=Backpack" class="nav-link">Backpack</a>
+      <a href="catalog.html" class="nav-link">Semua Koleksi</a>
+      <a href="business.html" class="nav-link">Tentang Kami</a>
+    </nav>
+
+    <!-- Brand logo -->
+    <a href="index.html" class="brand-logo">Vibe<span>Carry</span></a>
+
+    <!-- Right nav -->
+    <div class="nav-right">
+      <button class="nav-search-btn" onclick="document.getElementById('search-overlay').classList.add('open')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Cari
+      </button>
+      <a href="cart.html" class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Keranjang
+        <span class="cart-count" id="cart-count">0</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div id="mobile-nav" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--black);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:2rem">
+  <button onclick="document.getElementById('mobile-nav').style.display='none'" style="position:absolute;top:1.5rem;right:1.5rem;color:var(--white);font-size:1.5rem;background:none;border:none;cursor:pointer">✕</button>
+  <a href="index.html" class="brand-logo" style="font-size:2rem">Vibe<span>Carry</span></a>
+  <nav style="display:flex;flex-direction:column;align-items:center;gap:1.5rem">
+    <a href="catalog.html?type=Sling+Bag" style="color:var(--white);font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em">Sling Bag</a>
+    <a href="catalog.html?type=Backpack" style="color:var(--white);font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em">Backpack</a>
+    <a href="catalog.html" style="color:var(--white);font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em">Semua Koleksi</a>
+    <a href="business.html" style="color:var(--gold);font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em">Tentang Kami</a>
+  </nav>
+  <a href="cart.html" class="btn btn-primary">Lihat Keranjang</a>
+</div>
+
+<!-- overlay cari -->
+<div id="search-overlay" style="display:none;position:fixed;inset:0;background:rgba(13,13,13,.95);z-index:400;align-items:center;justify-content:center">
+  <div style="max-width:600px;width:90%;position:relative">
+    <button onclick="document.getElementById('search-overlay').classList.remove('open');document.getElementById('search-overlay').style.display='none'" style="position:absolute;top:-3rem;right:0;color:rgba(255,255,255,.5);font-size:1.5rem;background:none;border:none;cursor:pointer">✕</button>
+    <input id="search-input" type="search" placeholder="Cari tas idamanmu..." style="width:100%;padding:1.25rem 1.5rem;font-size:1.25rem;border:none;border-bottom:2px solid var(--gold);background:transparent;color:var(--white);outline:none;font-family:var(--serif);font-style:italic" />
+    <div style="color:rgba(255,255,255,.35);font-size:.8rem;margin-top:.75rem">Tekan Enter untuk mencari atau <span style="color:var(--gold)">Esc</span> untuk menutup</div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">✨ New Collection 2026</div>
+    <h1 class="hero-title">
+      Carry your<br />
+      <em>Vibe,</em><br />
+      Anywhere.
+    </h1>
+    <p class="hero-subtitle">
+      Setiap langkah Anda berharga, dan Anda berhak menjalaninya dengan penuh rasa percaya diri. Bersama koleksi tas kami, mari melangkah dengan penuh pesona.
+    </p>
+    <div class="hero-actions">
+      <a href="catalog.html" class="btn btn-primary btn-icon">
+        Jelajahi Koleksi
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="business.html" class="btn btn-outline-w">Tentang VibeCarry</a>
+    </div>
+    <!-- Stats -->
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>10+</strong><span>Produk Koleksi</span></div>
+      <div class="hero-stat"><strong>4.8★</strong><span>Rating Rata-rata</span></div>
+      <div class="hero-stat"><strong>200K+</strong><span>Free Ongkir</span></div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-overlay"></div>
+    <img src="images/hero.jpg" alt="VibeCarry — Premium Bag Collection" />
+  </div>
+</section>
+
+<!-- -- Ticker -- -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>Sling Bag</span><span class="dot">·</span>
+    <span>Backpack</span><span class="dot">·</span>
+    <span>New Collection</span><span class="dot">·</span>
+    <span>Carry Your Vibe</span><span class="dot">·</span>
+    <span>Free Ongkir 200K+</span><span class="dot">·</span>
+    <span>Inspeksi Mutu Ketat</span><span class="dot">·</span>
+    <span>Urban Style</span><span class="dot">·</span>
+    <span>Sling Bag</span><span class="dot">·</span>
+    <span>Backpack</span><span class="dot">·</span>
+    <span>New Collection</span><span class="dot">·</span>
+    <span>Carry Your Vibe</span><span class="dot">·</span>
+    <span>Free Ongkir 200K+</span><span class="dot">·</span>
+    <span>Inspeksi Mutu Ketat</span><span class="dot">·</span>
+    <span>Urban Style</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- -- Category Showcase -- -->
+<section class="section-sm">
+  <div class="container" style="margin-bottom:var(--sp5)">
+    <div class="section-head">
+      <div class="eyebrow">Temukan Koleksimu</div>
+      <h2>Shop by Category</h2>
+      <p>Dari sling bag yang manis hingga ransel yang fungsional — semua tersedia di VibeCarry.</p>
+    </div>
+  </div>
+  <div class="cat-grid reveal">
+    <a href="catalog.html?type=Sling+Bag" class="cat-card">
+      <img src="images/cat-sling.jpg" alt="Sling Bag Collection" style="object-position:center top" />
+      <div class="cat-card-overlay"></div>
+      <div class="cat-card-body">
+        <div class="cat-card-tag">👜 5 Produk</div>
+        <div class="cat-card-title">Sling Bag<br />Collection</div>
+        <div class="cat-card-cta">Shop Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+    <a href="catalog.html?type=Backpack" class="cat-card">
+      <img src="images/cat-backpack.jpg" alt="Backpack Collection" style="object-position:center" />
+      <div class="cat-card-overlay"></div>
+      <div class="cat-card-body">
+        <div class="cat-card-tag">🎒 5 Produk</div>
+        <div class="cat-card-title">Backpack<br />Collection</div>
+        <div class="cat-card-cta">Shop Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- -- Fitur Produk -- -->
+<section class="section bg-white">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:var(--sp7);flex-wrap:wrap;gap:1rem">
+      <div>
+        <div class="eyebrow" style="color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem">Pilihan Terbaik</div>
+        <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.1">Koleksi Unggulan</h2>
+      </div>
+      <a href="catalog.html" class="btn btn-outline-dark btn-sm">Lihat Semua →</a>
+    </div>
+    <div class="product-grid reveal" id="home-grid"></div>
+    <div style="text-align:center;margin-top:var(--sp7)">
+      <a href="catalog.html" class="btn btn-dark btn-icon">
+        Lihat Semua Koleksi
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- -- Tentang Brand VibeCarry -- -->
+<section class="section" id="tentang">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-img">
+        <img src="images/about.jpg" alt="VibeCarry — Carry your Vibe" />
+      </div>
+      <div>
+        <div class="about-eyebrow">Tentang VibeCarry</div>
+        <h2 class="about-title">Setiap Tas, Sebuah Cerita</h2>
+        <p class="about-body">
+          Selamat datang di <strong>VibeCarry</strong>, toko fashion online yang menghadirkan berbagai koleksi tas selempang (sling bag) dan ransel (backpack) yang memadukan estetika menggemaskan dengan sentuhan anggun yang berkelas.
+        </p>
+        <p class="about-body">
+          Bagi kami, sebuah tas bukan sekadar alat pembawa barang, melainkan media untuk memancarkan energi positif (<em>vibe</em>) unik yang ada di dalam diri Anda. Kami sangat selektif dalam menghadirkan setiap produk — ketahanan material, kenyamanan saat dipakai seharian, serta detail visual yang fungsional menjadi standar mutlak kami.
+        </p>
+        <div class="about-badges">
+          <span class="about-badge">✅ Inspeksi Mutu Ketat</span>
+          <span class="about-badge">📦 Pengiriman Aman</span>
+          <span class="about-badge">💬 CS Responsif</span>
+          <span class="about-badge">↩️ Easy Return</span>
+        </div>
+        <a href="business.html" class="btn btn-dark btn-icon">
+          Selengkapnya Tentang Kami
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- -- Mengapa Pilih VibeCarry -- -->
+<section class="section bg-black">
+  <div class="container">
+    <div class="section-head light reveal">
+      <div class="eyebrow">Keunggulan Kami</div>
+      <h2>Mengapa Pilih VibeCarry?</h2>
+    </div>
+    <div class="features-row reveal">
+      <div class="feature-box" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+        <span class="feature-icon">⭐</span>
+        <h4 style="color:var(--white)">Kurasi Ketat</h4>
+        <p style="color:rgba(255,255,255,.5)">Setiap produk melalui inspeksi mutu sebelum sampai ke tanganmu.</p>
+      </div>
+      <div class="feature-box" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+        <span class="feature-icon">🚚</span>
+        <h4 style="color:var(--white)">Pengiriman Cepat</h4>
+        <p style="color:rgba(255,255,255,.5)">Dikemas 1—24 jam, dikirim ke seluruh Indonesia dengan aman.</p>
+      </div>
+      <div class="feature-box" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+        <span class="feature-icon">💬</span>
+        <h4 style="color:var(--white)">CS Responsif</h4>
+        <p style="color:rgba(255,255,255,.5)">Tim customer service siap melayani setiap harinya untukmu.</p>
+      </div>
+      <div class="feature-box" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+        <span class="feature-icon">🔄</span>
+        <h4 style="color:var(--white)">Garansi Return</h4>
+        <p style="color:rgba(255,255,255,.5)">Produk tidak sesuai? Return mudah dalam 7 hari setelah terima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- -- Banner Full -- -->
+<section style="position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center">
+  <img src="images/banner.jpg" alt="VibeCarry Lifestyle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center" />
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,13,13,.75) 0%,rgba(13,13,13,.35) 100%)"></div>
+  <div class="container reveal" style="position:relative;z-index:2">
+    <div style="max-width:500px">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem">Koleksi Baru 2026</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:1.25rem">Temukan Tasmu,<br /><em>Ceritakan Dirimu.</em></h2>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:2rem;line-height:1.75">Koleksi eksklusif yang diciptakan agar fleksibel menyatu dengan berbagai gaya personal Anda.</p>
+      <a href="catalog.html" class="btn btn-primary btn-icon">
+        Shop Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- -- Newsletter -- -->
+<section class="newsletter bg-char" id="kontak">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:var(--sp4)">Newsletter</div>
+      <h2>Dapatkan 10% Diskon</h2>
+      <p>Daftar dan jadilah yang pertama tahu koleksi baru, promo eksklusif, dan style tips dari VibeCarry.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault();this.reset();showToast('Berhasil! Kode diskon dikirim ke emailmu ✉️')">
+        <input type="email" placeholder="email@kamu.com" required />
+        <button class="btn btn-primary" type="submit">Daftar Sekarang</button>
+      </form>
+      <p style="font-size:.72rem;color:rgba(255,255,255,.25);margin-top:.75rem">Tanpa spam. Unsubscribe kapan saja.</p>
+    </div>
+  </div>
+</section>
+
+<!-- -- Footer nya -- -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Vibe<span>Carry</span></div>
+        <p class="footer-desc">Destinasi utama tas selempang &amp; ransel premium. Carry your vibe, anywhere — karena setiap tas menceritakan dirimu.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+          <a href="#" aria-label="Shopee">🛍️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Koleksi</h4>
+        <ul>
+          <li><a href="catalog.html?type=Sling+Bag">Sling Bag</a></li>
+          <li><a href="catalog.html?type=Backpack">Backpack</a></li>
+          <li><a href="catalog.html">Semua Produk</a></li>
+          <li><a href="catalog.html?badge=NEW">New Arrivals</a></li>
+          <li><a href="catalog.html?badge=SALE">Sale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="business.html">Tentang Kami</a></li>
+          <li><a href="#">Cara Order</a></li>
+          <li><a href="#">Kebijakan Return</a></li>
+          <li><a href="#">Pengiriman</a></li>
+          <li><a href="index.html#kontak">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul>
+          <li><a href="#">WhatsApp: 0812-xxxx-xxxx</a></li>
+          <li><a href="#">Email: hello@vibecarry.id</a></li>
+          <li><a href="#">Instagram: @vibecarry.id</a></li>
+          <li><a href="#">Shopee: VibeCarry Official</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="yr"></span> VibeCarry. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div class="modal-inner" id="modal-inner"></div>
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script>
+/* --- Init --- */
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* Cart badge */
+function updateBadge() {
+  const c = Cart.count();
+  const el = document.getElementById("cart-count");
+  if (el) { el.textContent = c; el.style.display = c > 0 ? "inline-flex" : "none"; }
+}
+
+/* Toast */
+let _t;
+function showToast(msg) {
+  let t = document.querySelector(".toast");
+  if (!t) { t = Object.assign(document.createElement("div"), {className:"toast"}); document.body.appendChild(t); }
+  t.textContent = msg; void t.offsetWidth; t.classList.add("show");
+  clearTimeout(_t); _t = setTimeout(() => t.classList.remove("show"), 2800);
+}
+
+/* Navigasi Mobile */
+document.getElementById("nav-toggle").addEventListener("click", () => {
+  const mn = document.getElementById("mobile-nav");
+  mn.style.display = mn.style.display === "none" ? "flex" : "none";
+});
+
+/* overlay Search */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    document.getElementById("search-overlay").classList.remove("open");
+    document.getElementById("search-overlay").style.display = "none";
+  }
+  if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+    e.preventDefault();
+    document.getElementById("search-overlay").style.display = "flex";
+  }
+});
+document.getElementById("search-overlay").addEventListener("click", e => {
+  if (e.target === document.getElementById("search-overlay")) {
+    e.currentTarget.classList.remove("open");
+    e.currentTarget.style.display = "none";
+  }
+});
+document.getElementById("search-input")?.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    window.location.href = `catalog.html?q=${encodeURIComponent(e.target.value.trim())}`;
+  }
+});
+
+/* Reveal on scroll */
+function initReveal() {
+  const els = document.querySelectorAll(".reveal");
+  const obs = new IntersectionObserver(en => en.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
+  }), { threshold: 0.08 });
+  els.forEach(e => obs.observe(e));
+}
+
+/* Product image */
+function imgSrc(p) { return p.image; }
+
+/* Badge map */
+const BADGE_CLASS = { NEW: "badge-new", SALE: "badge-sale", BEST: "badge-best", HIT: "badge-hit" };
+const BADGE_LABEL = { NEW: "NEW", SALE: "SALE", BEST: "BEST SELLER", HIT: "HOT 🔥" };
+
+/* Render home grid */
+function renderHomeGrid() {
+  const grid = document.getElementById("home-grid");
+  if (!grid) return;
+  grid.innerHTML = PRODUCTS.map(p => {
+    const d = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+    return `
+    <div class="product-card">
+      <div class="product-thumb">
+        ${p.badge ? `<span class="product-badge ${BADGE_CLASS[p.badge]}">${BADGE_LABEL[p.badge]}</span>` : ""}
+        <img class="prod-img" src="${imgSrc(p)}" alt="${p.name}" loading="lazy" data-type="${p.type}" data-placeholder="${p.type}" onerror="handleImgError(this)" />
+        <button class="product-wish" data-wish="${p.id}" aria-label="Wishlist">🤍</button>
+        <button class="product-cta-bar" data-add="${p.id}">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Tambah ke Keranjang
+        </button>
+      </div>
+      <div class="product-body">
+        <div class="product-type">${p.type}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-foot">
+          <div>
+            <span class="price-now">${formatRupiah(p.price)}</span>
+            ${p.oldPrice ? `<span class="price-old">${formatRupiah(p.oldPrice)}</span><span class="price-disc">-${d}%</span>` : ""}
+          </div>
+          <div class="star-row"><span class="stars">★★★★★</span><span class="star-count">(${p.reviews})</span></div>
+        </div>
+        ${colorSwatchesHTML(p.colorHex, p.colors)}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* Canvas placeholder */
+function handleImgError(img) {
+  const type = img.dataset.type || "Bag";
+  const c = document.createElement("canvas");
+  c.width = 400; c.height = 530;
+  const ctx = c.getContext("2d");
+  ctx.fillStyle = "#F2F2F2"; ctx.fillRect(0,0,400,530);
+  ctx.fillStyle = "#E8E8E8"; ctx.fillRect(40,40,320,400);
+  ctx.font = "48px serif"; ctx.textAlign = "center";
+  ctx.fillText(type === "Backpack" ? "🎒" : "👜", 200, 200);
+  ctx.fillStyle = "#C9A97E"; ctx.font = "bold 16px 'Playfair Display',serif";
+  ctx.fillText("VIBECARRY", 200, 370);
+  ctx.fillStyle = "#6B6B6B"; ctx.font = "12px Inter,sans-serif";
+  ctx.fillText("Photo Coming Soon", 200, 392);
+  img.src = c.toDataURL();
+}
+
+/* Grid click */
+document.addEventListener("click", e => {
+  const add  = e.target.closest("[data-add]");
+  const wish = e.target.closest("[data-wish]");
+  const det  = e.target.closest("[data-detail]");
+  if (add)  { const p = getProductById(add.dataset.add); if (p) { Cart.add(p.id); showToast(`${p.name} ditambahkan ke keranjang 🛍️`); updateBadge(); } }
+  if (wish) { wish.textContent = wish.textContent.trim() === "🤍" ? "❤️" : "🤍"; showToast("Ditambahkan ke wishlist ♥"); }
+  if (det)  { openModal(det.dataset.detail); }
+});
+
+/* Modal */
+const modalEl    = document.getElementById("modal");
+const modalInner = document.getElementById("modal-inner");
+const modalClose = document.getElementById("modal-close");
+
+function openModal(id) {
+  const p = getProductById(id); if (!p) return;
+  const d = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+  const feats = p.features.map(f => `<li>${f}</li>`).join("");
+  const colorChips = p.colors.map((c, i) =>
+    `<span style="display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border:1.5px solid var(--light);border-radius:999px;font-size:.75rem;font-weight:600;background:var(--white)">
+      <span style="width:10px;height:10px;border-radius:50%;background:${p.colorHex[i]};border:1px solid rgba(0,0,0,.12)"></span>${c}
+    </span>`
+  ).join("");
+  modalInner.innerHTML = `
+    <div class="modal-img">
+      <img src="${imgSrc(p)}" alt="${p.name}" onerror="handleImgError(this)" data-type="${p.type}" />
+    </div>
+    <div class="modal-details">
+      <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">${p.type}</div>
+      <h2 style="font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.2;margin-bottom:.75rem">${p.name}</h2>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem">
+        <span style="font-size:1.4rem;font-weight:800">${formatRupiah(p.price)}</span>
+        ${p.oldPrice ? `<span style="font-size:.85rem;color:var(--mid);text-decoration:line-through">${formatRupiah(p.oldPrice)}</span><span style="font-size:.75rem;font-weight:700;color:#DC2626">-${d}%</span>` : ""}
+      </div>
+      <div style="font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem">Pilihan Warna</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem">${colorChips}</div>
+      <p style="font-size:.88rem;color:var(--mid);line-height:1.8;margin-bottom:1rem">${p.desc}</p>
+      <div style="font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem">Fitur Unggulan</div>
+      <ul style="font-size:.85rem;color:var(--mid);padding-left:1.1rem;margin-bottom:1.25rem;line-height:2">${feats}</ul>
+      <table class="spec-table" style="margin-bottom:1.25rem">
+        <tr><td>Bahan</td><td>${p.material}</td></tr>
+        <tr><td>Stok</td><td>${p.stock} pcs tersedia</td></tr>
+        <tr><td>Rating</td><td>★ ${p.rating} (${p.reviews} ulasan)</td></tr>
+      </table>
+      <button class="btn btn-dark btn-block" data-add="${p.id}" style="margin-bottom:.5rem">
+        🛍️ Tambah ke Keranjang
+      </button>
+      <a href="cart.html" class="btn btn-gold-outline btn-block">Lihat Keranjang</a>
+    </div>`;
+  modalEl.classList.add("open"); modalEl.style.display = "flex";
+  modalEl.setAttribute("aria-hidden", "false");
+}
+function closeModal() {
+  modalEl.classList.remove("open"); modalEl.style.display = "none";
+  modalEl.setAttribute("aria-hidden", "true");
+}
+modalClose?.addEventListener("click", closeModal);
+modalEl?.addEventListener("click", e => { if (e.target === modalEl) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+/* --- ContentLoad --- */
+document.addEventListener("DOMContentLoaded", () => {
+  updateBadge();
+  renderHomeGrid();
+  initReveal();
+});
+document.addEventListener("cart:change", updateBadge);
+</script>
+</body>
+</html>
+
